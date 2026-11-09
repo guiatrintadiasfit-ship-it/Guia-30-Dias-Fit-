@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Completo de Emagrecimento - Transforme seus Hábitos</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        emeraldCustom: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        tealCustom: {
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-pattern {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 0.8px, transparent 0.8px);
+            background-size: 20px 20px;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            opacity: 0;
+        }
+        .accordion-content.active {
+            max-height: 300px;
+            opacity: 1;
+        }
+        .tab-btn.active {
+            background-color: #059669;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-emerald-500 selection:text-white pb-12">
+
+    <!-- HEADER INTERATIVO -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-600/20">
+                    <i data-lucide="leaf" class="w-5 h-5"></i>
+                </div>
+                <span class="font-heading font-bold text-slate-900 text-lg tracking-tight">GUIA<span class="text-emerald-600">SAUDÁVEL</span></span>
+            </div>
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+                <a href="#ferramentas" class="hover:text-emerald-600 transition-colors">Calculadora</a>
+                <a href="#plano30dias" class="hover:text-emerald-600 transition-colors">Plano 30 Dias</a>
+                <a href="#quiz" class="hover:text-emerald-600 transition-colors">Quiz Hábitos</a>
+                <a href="#faq" class="hover:text-emerald-600 transition-colors">Dúvidas</a>
+            </nav>
+            <button onclick="openCheckoutModal()" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-full transition-all shadow-md shadow-emerald-600/20">
+                Garantir Meu Acesso
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 bg-gradient-to-b from-emerald-50/60 via-white to-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 mb-6 border border-emerald-200">
+                <i data-lucide="sparkles" class="w-4 h-4 text-emerald-600"></i> Método Prático e Sustentável
+            </span>
+            <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 max-w-4xl mx-auto">
+                GUIA COMPLETO DE <span class="gradient-text">EMAGRECIMENTO</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal mb-8 max-w-3xl mx-auto">
+                Chega de ficar perdido sem saber por onde começar. Construa hábitos mais saudáveis, organize sua alimentação e transforme sua rotina um passo de cada vez — sem depender de dietas malucas ou promessas milagrosas.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+                <button onclick="openCheckoutModal()" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-2xl shadow-xl shadow-emerald-600/30 hover:scale-[1.02] transition-all duration-200 group">
+                    QUERO CONHECER O GUIA
+                    <i data-lucide="arrow-right" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                <a href="#ferramentas" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-4 text-base font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 rounded-2xl transition-all">
+                    Testar Calculadora Grátis
+                </a>
+            </div>
+
+            <!-- Badges Informativas -->
+            <div class="flex flex-wrap justify-center gap-6 pt-6 border-t border-slate-200/80 max-w-2xl mx-auto text-slate-600 text-xs sm:text-sm font-medium">
+                <div class="flex items-center gap-1.5"><i data-lucide="file-text" class="w-4 h-4 text-emerald-600"></i> e-Book em PDF (18 Pág.)</div>
+                <div class="flex items-center gap-1.5"><i data-lucide="check-square" class="w-4 h-4 text-emerald-600"></i> Checklists & Diário</div>
+                <div class="flex items-center gap-1.5"><i data-lucide="calendar" class="w-4 h-4 text-emerald-600"></i> Plano de 30 Dias</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE IDENTIFICAÇÃO E DOR -->
+    <section class="py-14 bg-white border-y border-slate-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h2 class="font-heading text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+                    Você sente que precisa mudar sua rotina, mas não sabe por onde começar?
+                </h2>
+                <p class="text-slate-600 text-base">Identifique os obstáculos comuns que impedem a sua consistência:</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-10">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="rotate-ccw" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-semibold text-slate-900 mb-2">Tentativas Frustradas</h3>
+                    <p class="text-slate-600 text-sm">Talvez você já tenha tentado mudar sua alimentação várias vezes, mas teve dificuldade para manter a consistência.</p>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="info" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-semibold text-slate-900 mb-2">Excesso de Informação</h3>
+                    <p class="text-slate-600 text-sm">Cansado de encontrar informações diferentes na internet e não saber em quem confiar para ter resultados reais.</p>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="compass" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-semibold text-slate-900 mb-2">Falta de Método</h3>
+                    <p class="text-slate-600 text-sm">Tentar mudar tudo de uma vez costuma gerar exaustão. Você precisa de pequenas ações estruturadas.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 text-white rounded-3xl p-8 md:p-10 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <span class="text-emerald-400 font-semibold uppercase text-xs tracking-wider">A Chave da Mudança</span>
+                    <h3 class="font-heading text-2xl sm:text-3xl font-bold mt-1 mb-2">Você não precisa mudar tudo de uma vez.</h3>
+                    <p class="text-slate-300 text-sm sm:text-base max-w-xl">
+                        Precisa de orientação, organização e pequenas ações que façam sentido na sua realidade diária.
+                    </p>
+                </div>
+                <button onclick="openCheckoutModal()" class="px-6 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl transition-all shadow-lg whitespace-nowrap">
+                    Conhecer o Guia
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECURSO INTERATIVO 1: CALCULADORA DE DÉFICIT & ÁGUA -->
+    <section id="ferramentas" class="py-16 md:py-24 bg-pattern border-b border-slate-200/60">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-emerald-600 font-semibold uppercase tracking-wider text-xs">Ferramenta Educativa Gratuita</span>
+                <h2 class="font-heading text-3xl font-extrabold text-slate-900 mt-1">Calculadora Interativa de Déficit & Água</h2>
+                <p class="text-slate-600 text-sm mt-2">Simule suas necessidades energéticas diárias e ingestão hídrica recomendada.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-slate-200/90 p-6 md:p-8 shadow-xl">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Formulário de Entrada -->
+                    <div class="space-y-4">
+                        <h3 class="font-heading font-bold text-slate-900 text-lg flex items-center gap-2">
+                            <i data-lucide="sliders" class="w-5 h-5 text-emerald-600"></i> Seus Dados
+                        </h3>
+                        
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Sexo Biológico</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button type="button" id="calc-gender-m" onclick="setGender('m')" class="py-2 text-sm font-semibold rounded-xl border border-emerald-600 bg-emerald-50 text-emerald-700">Masculino</button>
+                                <button type="button" id="calc-gender-f" onclick="setGender('f')" class="py-2 text-sm font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50">Feminino</button>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Idade</label>
+                                <input type="number" id="calc-age" value="30" min="15" max="90" oninput="calculateStats()" class="w-full px-3 py-2 border border-slate-200 rounded-xl text-sm font-semibold text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Peso (kg)</label>
+                                <input type="number" id="calc-weight" value="75" min="30" max="200" oninput="calculateStats()" class="w-full px-3 py-2 border border-slate-200 rounded-xl text-sm font-semibold text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Altura (cm)</label>
+                                <input type="number" id="calc-height" value="170" min="120" max="220" oninput="calculateStats()" class="w-full px-3 py-2 border border-slate-200 rounded-xl text-sm font-semibold text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Nível de Atividade</label>
+                            <select id="calc-activity" onchange="calculateStats()" class="w-full px-3 py-2 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:outline-none bg-white">
+                                <option value="1.2">Sedentário (pouco ou nenhum exercício)</option>
+                                <option value="1.375" selected>Leve (1-3 dias de exercício/semana)</option>
+                                <option value="1.55">Moderado (3-5 dias de exercício/semana)</option>
+                                <option value="1.725">Intenso (6-7 dias de exercício/semana)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Resultados Didáticos -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-heading font-bold text-slate-900 text-lg mb-4 flex items-center gap-2">
+                                <i data-lucide="bar-chart-2" class="w-5 h-5 text-emerald-600"></i> Estimativa Pedagógica
+                            </h3>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+                                    <span class="text-xs font-medium text-slate-500 block">Consumo de Água Recomendado</span>
+                                    <div class="text-2xl font-extrabold text-teal-600 flex items-center gap-2 mt-0.5">
+                                        <i data-lucide="droplet" class="w-6 h-6 text-teal-500 fill-teal-500/20"></i>
+                                        <span id="res-water">2.6 Litros / dia</span>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+                                    <span class="text-xs font-medium text-slate-500 block">Gasto Calórico diário (Manutenção)</span>
+                                    <div class="text-xl font-bold text-slate-800 mt-0.5" id="res-maintenance">2.100 kcal</div>
+                                </div>
+
+                                <div class="bg-emerald-50 p-3.5 rounded-xl border border-emerald-200 shadow-sm">
+                                    <span class="text-xs font-semibold text-emerald-800 block">Faixa de Déficit Energético Sustentável</span>
+                                    <div class="text-2xl font-extrabold text-emerald-600 mt-0.5" id="res-deficit">1.600 - 1.800 kcal</div>
+                                    <span class="text-[11px] text-emerald-700 mt-1 block">Sem dietas restritivas ou passar fome.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-[11px] text-slate-500 mt-4 italic">
+                            *Valores estimados para fins educativos. O guia ensina como aplicar estes conceitos no seu dia a dia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECURSO INTERATIVO 2: SIMULADOR DO PLANO DE 30 DIAS -->
+    <section id="plano30dias" class="py-16 md:py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-emerald-600 font-semibold uppercase tracking-wider text-xs">Simulador de Progresso</span>
+                <h2 class="font-heading text-3xl font-extrabold text-slate-900 mt-1">Plano Gradual de Hábitos (30 Dias)</h2>
+                <p class="text-slate-600 text-sm mt-2">Clique nas abas e marque os checkboxes para testar o acompanhamento interativo do guia:</p>
+            </div>
+
+            <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm">
+                <!-- Abas dos Dias -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-8">
+                    <button onclick="switchTab(1)" id="tab-btn-1" class="tab-btn active py-3 px-4 rounded-xl font-heading font-semibold text-xs sm:text-sm text-slate-600 bg-white border border-slate-200 transition-all">
+                        Dias 1 a 7
+                    </button>
+                    <button onclick="switchTab(2)" id="tab-btn-2" class="tab-btn py-3 px-4 rounded-xl font-heading font-semibold text-xs sm:text-sm text-slate-600 bg-white border border-slate-200 transition-all">
+                        Dias 8 a 14
+                    </button>
+                    <button onclick="switchTab(3)" id="tab-btn-3" class="tab-btn py-3 px-4 rounded-xl font-heading font-semibold text-xs sm:text-sm text-slate-600 bg-white border border-slate-200 transition-all">
+                        Dias 15 a 21
+                    </button>
+                    <button onclick="switchTab(4)" id="tab-btn-4" class="tab-btn py-3 px-4 rounded-xl font-heading font-semibold text-xs sm:text-sm text-slate-600 bg-white border border-slate-200 transition-all">
+                        Dias 22 a 30
+                    </button>
+                </div>
+
+                <!-- Barra de Progresso Interativa -->
+                <div class="mb-8 bg-white p-4 rounded-2xl border border-slate-200">
+                    <div class="flex justify-between items-center text-xs font-semibold mb-2">
+                        <span class="text-slate-700">Progresso no Guia de 30 Dias:</span>
+                        <span class="text-emerald-600" id="progress-percent">0% Concluído</span>
+                    </div>
+                    <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="h-full bg-emerald-500 transition-all duration-300 w-0"></div>
+                    </div>
+                </div>
+
+                <!-- Conteúdo das Abas -->
+                <div id="tab-content-1" class="tab-content space-y-3">
+                    <h3 class="font-heading font-bold text-slate-900 text-lg mb-1">Semana 1: Observação e Consciência</h3>
+                    <p class="text-slate-600 text-xs mb-4">Observe sua rotina sem julgamentos severos e identifique pequenos ajustes iniciais.</p>
+                    
+                    <label class="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300 transition-colors">
+                        <input type="checkbox" onchange="updateProgress()" class="habit-check mt-1 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
+                        <span class="text-sm text-slate-700">Registrar horários habituais das refeições por 3 dias seguidos.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300 transition-colors">
+                        <input type="checkbox" onchange="updateProgress()" class="habit-check mt-1 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
+                        <span class="text-sm text-slate-700">Aumentar em 500ml o consumo diário de água limpa.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300 transition-colors">
+                        <input type="checkbox" onchange="updateProgress()" class="habit-check mt-1 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
+                        <span class="text-sm text-slate-700">Identificar 2 gatilhos emocionais que geram vontade de beliscar.</span>
+                    </label>
+                </div>
+
+                <div id="tab-content-2" class="tab-content hidden space-y-3">
+                    <h3 class="font-heading font-bold text-slate-900 text-lg mb-1">Semana 2: Organização das Refeições</h3>
+                    <p class="text-slate-600 text-xs mb-4">Trabalhe a estrutura dos pratos e compras econômicas para a semana.</p>
+                    
+                    <label class="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300 transition-colors">
+                        <input type="checkbox" onchange="updateProgress()" class="habit-check mt-1 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
+                        <span class="text-sm text-slate-700">Montar a lista de compras baseada nos alimentos essenciais do guia.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300 transition-colors">
+                        <input type="checkbox" onchange="updateProgress()" class="habit-check mt-1 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
+                        <span class="text-sm text-slate-700">Incluir uma porção de vegetais/salada no almoço e no jantar.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300 transition-colors">
+                        <input type="checkbox" onchange="updateProgress()" class="habit-check mt-1 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
+                        <span class="text-sm text-slate-700">Evitar distrações (telas/TV) durante pelo menos uma refeição por dia.</span>
+                    </label>
+                </div>
+
+                <div id="tab-content-3" class="tab-content hidden space-y-3">
+                    <h3 class="font-heading font-bold text-slate-900 text-lg mb-1">Semana 3: Movimentos Possíveis e Seguros</h3>
+                    <p class="text-slate-600 text-xs mb-4">Insira caminhadas ou exercícios viáveis de acordo com a sua rotina atual.</p>
+                    
+                    <label class="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300 transition-colors">
+                        <input type="checkbox" onchange="updateProgress()" class="habit-check mt-1 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
+                        <span class="text-sm text-slate-700">Realizar 20 a 30 minutos de caminhada leve 3x na semana.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300 transition-colors">
+                        <input type="checkbox" onchange="updateProgress()" class="habit-check mt-1 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
+                        <span class="text-sm text-slate-700">Estabelecer horário fixo para desligar telas e preparar o sono.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300 transition-colors">
+                        <input type="checkbox" onchange="updateProgress()" class="habit-check mt-1 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
+                        <span class="text-sm text-slate-700">Manter a meta diária de ingestão hídrica calculada.</span>
+                    </label>
+                </div>
+
+                <div id="tab-content-4" class="tab-content hidden space-y-3">
+                    <h3 class="font-heading font-bold text-slate-900 text-lg mb-1">Semana 4: Consolidação e Revisão</h3>
+                    <p class="text-slate-600 text-xs mb-4">Consolide os aprendizados e planeje a manutenção sustentável a longo prazo.</p>
+                    
+                    <label class="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300 transition-colors">
+                        <input type="checkbox" onchange="updateProgress()" class="habit-check mt-1 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
+                        <span class="text-sm text-slate-700">Preencher o checklist de autoavaliação final do Guia.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300 transition-colors">
+                        <input type="checkbox" onchange="updateProgress()" class="habit-check mt-1 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
+                        <span class="text-sm text-slate-700">Reconhecer vitórias não ligadas apenas ao peso na balança.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-300 transition-colors">
+                        <input type="checkbox" onchange="updateProgress()" class="habit-check mt-1 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
+                        <span class="text-sm text-slate-700">Definir as 3 regras de ouro pessoais para manter o hábito ativo.</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECURSO INTERATIVO 3: QUIZ DE DIAGNÓSTICO DE HÁBITOS -->
+    <section id="quiz" class="py-16 md:py-24 bg-gradient-to-br from-emerald-900 via-slate-900 to-slate-950 text-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-emerald-400 font-semibold uppercase tracking-wider text-xs">Diagnóstico Rápido</span>
+                <h2 class="font-heading text-3xl font-extrabold mt-1">Descubra seu Perfil de Hábitos</h2>
+                <p class="text-slate-300 text-sm mt-2">Responda a 3 perguntas para descobrir onde focar sua energia inicial:</p>
+            </div>
+
+            <div class="bg-slate-800/90 border border-slate-700 rounded-3xl p-6 md:p-8 shadow-2xl backdrop-blur-sm">
+                
+                <!-- Pergunta 1 -->
+                <div id="quiz-q1" class="quiz-step space-y-4">
+                    <span class="text-xs font-semibold text-emerald-400 uppercase">Pergunta 1 de 3</span>
+                    <h3 class="font-heading text-xl font-bold">Qual a sua maior dificuldade atualmente ao tentar emagrecer?</h3>
+                    
+                    <div class="space-y-2 pt-2">
+                        <button onclick="answerQuiz(1, 'org')" class="w-full text-left p-4 rounded-xl bg-slate-700/60 hover:bg-emerald-600/30 hover:border-emerald-500 border border-slate-600 transition-all text-sm">
+                            Falta de tempo para planejar e preparar refeições
+                        </button>
+                        <button onclick="answerQuiz(1, 'emo')" class="w-full text-left p-4 rounded-xl bg-slate-700/60 hover:bg-emerald-600/30 hover:border-emerald-500 border border-slate-600 transition-all text-sm">
+                            Ansiedade, fome emocional e vontade excessiva de doces
+                        </button>
+                        <button onclick="answerQuiz(1, 'inf')" class="w-full text-left p-4 rounded-xl bg-slate-700/60 hover:bg-emerald-600/30 hover:border-emerald-500 border border-slate-600 transition-all text-sm">
+                            Não sei o que comer ou sinto que preciso cortar tudo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pergunta 2 -->
+                <div id="quiz-q2" class="quiz-step hidden space-y-4">
+                    <span class="text-xs font-semibold text-emerald-400 uppercase">Pergunta 2 de 3</span>
+                    <h3 class="font-heading text-xl font-bold">Como costuma ser a sua prática de atividades físicas?</h3>
+                    
+                    <div class="space-y-2 pt-2">
+                        <button onclick="answerQuiz(2, 'sed')" class="w-full text-left p-4 rounded-xl bg-slate-700/60 hover:bg-emerald-600/30 hover:border-emerald-500 border border-slate-600 transition-all text-sm">
+                            Não me meço nem pratico nada no momento
+                        </button>
+                        <button onclick="answerQuiz(2, 'incons')" class="w-full text-left p-4 rounded-xl bg-slate-700/60 hover:bg-emerald-600/30 hover:border-emerald-500 border border-slate-600 transition-all text-sm">
+                            Começo com empolgação mas paro depois de duas semanas
+                        </button>
+                        <button onclick="answerQuiz(2, 'ativo')" class="w-full text-left p-4 rounded-xl bg-slate-700/60 hover:bg-emerald-600/30 hover:border-emerald-500 border border-slate-600 transition-all text-sm">
+                            Já pratico mas a alimentação estraga meu resultado
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pergunta 3 -->
+                <div id="quiz-q3" class="quiz-step hidden space-y-4">
+                    <span class="text-xs font-semibold text-emerald-400 uppercase">Pergunta 3 de 3</span>
+                    <h3 class="font-heading text-xl font-bold">Qual o seu objetivo principal ao buscar o Guia?</h3>
+                    
+                    <div class="space-y-2 pt-2">
+                        <button onclick="finishQuiz('rotina')" class="w-full text-left p-4 rounded-xl bg-slate-700/60 hover:bg-emerald-600/30 hover:border-emerald-500 border border-slate-600 transition-all text-sm">
+                            Criar uma rotina simples e sustentável para a vida toda
+                        </button>
+                        <button onclick="finishQuiz('entender')" class="w-full text-left p-4 rounded-xl bg-slate-700/60 hover:bg-emerald-600/30 hover:border-emerald-500 border border-slate-600 transition-all text-sm">
+                            Entender a alimentação sem neuras e proibições
+                        </button>
+                        <button onclick="finishQuiz('consist')" class="w-full text-left p-4 rounded-xl bg-slate-700/60 hover:bg-emerald-600/30 hover:border-emerald-500 border border-slate-600 transition-all text-sm">
+                            Parar de desistir no meio do caminho
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Resultado do Quiz -->
+                <div id="quiz-result" class="hidden space-y-4 text-center py-4">
+                    <div class="w-14 h-14 bg-emerald-500 text-slate-950 rounded-2xl flex items-center justify-center mx-auto mb-2">
+                        <i data-lucide="award" class="w-8 h-8"></i>
+                    </div>
+                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Resultado do seu Diagnóstico</span>
+                    <h3 class="font-heading text-2xl font-bold text-white" id="quiz-res-title">Perfil: Construção Passo a Passo</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed max-w-lg mx-auto" id="quiz-res-desc">
+                        Seu foco ideal no guia será nas semanas 1 e 2 (organização de refeições e gestão da fome emocional). Você tem tudo para ter ótimos resultados com nosso plano gradual.
+                    </p>
+
+                    <div class="pt-4">
+                        <button onclick="openCheckoutModal()" class="px-8 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl transition-all shadow-xl">
+                            Acessar o Guia Indicado para Você
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTEÚDO DO E-BOOK -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-emerald-600 font-semibold uppercase tracking-wider text-xs">Visão Geral</span>
+                <h2 class="font-heading text-3xl font-extrabold text-slate-900 mt-1">O que você vai encontrar no material</h2>
+                <p class="text-slate-600 text-sm mt-2">Um material educativo e transformador dividido estrategicamente:</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-all">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="book" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-heading font-semibold text-slate-900 mb-1">Fundamentos & Mitos</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Entenda os conceitos reais do emagrecimento sem cair em falácias da internet.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-all">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="pie-chart" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-heading font-semibold text-slate-900 mb-1">Montagem de Refeições</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Como montar pratos nutritivos, saborosos e equilibrados no seu dia a dia.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-all">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-heading font-semibold text-slate-900 mb-1">Calorias & Déficit</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Aprenda o funcionamento do déficit energético sem contagens neuróticas.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-all">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-heading font-semibold text-slate-900 mb-1">Compras Econômicas</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Estratégias práticas para fazer feira e mercado sem gastar além da conta.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-all">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="heart" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-heading font-semibold text-slate-900 mb-1">Fome x Emoções</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Como compreender seus sinais de saciedade e lidar com a ansiedade.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-all">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-heading font-semibold text-slate-900 mb-1">Plano Gradual (30 Dias)</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Estrutura dividida por semanas com checklists e acompanhamento do progresso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ COM BUSCA INTERATIVA -->
+    <section id="faq" class="py-16 md:py-24 bg-slate-50 border-t border-slate-200/60">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-emerald-600 font-semibold uppercase tracking-wider text-xs">Transparência</span>
+                <h2 class="font-heading text-3xl font-extrabold text-slate-900 mt-1">Perguntas Frequentes</h2>
+                <p class="text-slate-600 text-sm mt-2">Pesquise sua dúvida ou clique para expandir:</p>
+            </div>
+
+            <!-- Campo de Busca no FAQ -->
+            <div class="relative mb-6">
+                <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+                <input type="text" id="faq-search" onkeyup="filterFaq()" placeholder="Digite uma palavra (ex: PDF, academia, dieta, resultados)..." class="w-full pl-11 pr-4 py-3 bg-white border border-slate-200 rounded-2xl text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none shadow-sm">
+            </div>
+
+            <!-- Accordion Items -->
+            <div class="space-y-3" id="faq-container">
+                
+                <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-heading font-semibold text-slate-900 flex justify-between items-center">
+                        <span>Como recebo o material?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content px-5 pb-5 text-slate-600 text-sm leading-relaxed">
+                        O material é totalmente digital. Você receberá o acesso para download em formato PDF logo após a confirmação do pagamento.
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-heading font-semibold text-slate-900 flex justify-between items-center">
+                        <span>Preciso ter academia?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content px-5 pb-5 text-slate-600 text-sm leading-relaxed">
+                        Não. O guia apresenta possibilidades de movimentação adaptáveis à realidade, espaço e rotina de cada pessoa.
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-heading font-semibold text-slate-900 flex justify-between items-center">
+                        <span>Preciso cortar arroz, pão e massas?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content px-5 pb-5 text-slate-600 text-sm leading-relaxed">
+                        Não. O material ensina conceitos de alimentação equilibrada e flexível, sem proibições radicais ou terrorismo nutricional.
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-heading font-semibold text-slate-900 flex justify-between items-center">
+                        <span>O guia é uma dieta personalizada?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content px-5 pb-5 text-slate-600 text-sm leading-relaxed">
+                        Não. É um material educativo geral para desenvolvimento de hábitos e não substitui o acompanhamento individualizado de médico ou nutricionista.
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-heading font-semibold text-slate-900 flex justify-between items-center">
+                        <span>Posso ter resultados garantidos?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content px-5 pb-5 text-slate-600 text-sm leading-relaxed">
+                        Cada pessoa tem necessidades e respostas metabólicas diferentes. O guia não promete quantidade fixa de quilos perdidos nem milagres.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER E AVISO LEGAL MANDATÓRIO -->
+    <footer class="bg-slate-950 text-slate-400 py-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 text-xs leading-relaxed mb-8">
+                <p class="font-bold text-slate-300 mb-1 flex items-center gap-1.5">
+                    <i data-lucide="shield-alert" class="w-4 h-4 text-emerald-500"></i> Aviso Legal e Educacional:
+                </p>
+                Material educativo geral. Não substitui orientação de médico, nutricionista ou profissional de educação física. Pessoas com condições de saúde específicas devem buscar orientação individualizada antes de iniciar mudanças drásticas na rotina.
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+                <div class="flex items-center space-x-2">
+                    <div class="w-6 h-6 rounded-lg bg-emerald-600 flex items-center justify-center text-white">
+                        <i data-lucide="leaf" class="w-3.5 h-3.5"></i>
+                    </div>
+                    <span class="font-heading font-bold text-white tracking-tight">GUIA<span class="text-emerald-500">SAUDÁVEL</span></span>
+                </div>
+                <p>&copy; Guia Completo de Emagrecimento. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE CHECKOUT SIMULADO -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 w-8 h-8 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-slate-600">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <span class="inline-block py-1 px-3 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full mb-2">Oferta Especial Digital</span>
+                <h3 class="font-heading text-2xl font-bold text-slate-900">Guia Completo de Emagrecimento</h3>
+                <p class="text-slate-500 text-xs mt-1">Acesso digital imediato em PDF</p>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 mb-6 text-xs text-slate-700">
+                <div class="flex justify-between"><span>1 e-book digital em PDF (18 Páginas)</span><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i></div>
+                <div class="flex justify-between"><span>Checklists de acompanhamento</span><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i></div>
+                <div class="flex justify-between"><span>Planejamento de hábitos & Diário semanal</span><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i></div>
+                <div class="flex justify-between"><span>Plano gradual de 30 dias</span><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i></div>
+            </div>
+
+            <div class="text-center mb-6">
+                <span class="text-xs text-slate-400 line-through block">De R$ 67,00</span>
+                <span class="text-3xl font-extrabold text-emerald-600">R$ 29,90</span>
+                <span class="text-xs text-slate-500 block">Pagamento único • Sem assinaturas</span>
+            </div>
+
+            <button onclick="confirmPurchaseSim()" class="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2">
+                <span>QUERO ACESSAR MEU GUIA AGORA</span>
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+            <p class="text-center text-[11px] text-slate-400 mt-3 flex items-center justify-center gap-1">
+                <i data-lucide="lock" class="w-3.5 h-3.5"></i> Ambiente Seguro de Pagamento
+            </p>
+        </div>
+    </div>
+
+    <!-- SCRIPT DA APLICAÇÃO -->
+    <script>
+        // Inicialização de Ícones
+        lucide.createIcons();
+
+        // 1. LÓGICA CALCULADORA DE DÉFICIT & ÁGUA
+        let currentGender = 'm';
+
+        function setGender(g) {
+            currentGender = g;
+            const btnM = document.getElementById('calc-gender-m');
+            const btnF = document.getElementById('calc-gender-f');
+            if (g === 'm') {
+                btnM.className = "py-2 text-sm font-semibold rounded-xl border border-emerald-600 bg-emerald-50 text-emerald-700";
+                btnF.className = "py-2 text-sm font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50";
+            } else {
+                btnF.className = "py-2 text-sm font-semibold rounded-xl border border-emerald-600 bg-emerald-50 text-emerald-700";
+                btnM.className = "py-2 text-sm font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50";
+            }
+            calculateStats();
+        }
+
+        function calculateStats() {
+            const age = parseFloat(document.getElementById('calc-age').value) || 30;
+            const weight = parseFloat(document.getElementById('calc-weight').value) || 75;
+            const height = parseFloat(document.getElementById('calc-height').value) || 170;
+            const activity = parseFloat(document.getElementById('calc-activity').value) || 1.375;
+
+            // Água: 35ml por kg
+            const waterLiters = ((weight * 35) / 1000).toFixed(1);
+            document.getElementById('res-water').innerText = `${waterLiters} Litros / dia`;
+
+            // TDEE - Equação de Mifflin-St Jeor
+            let bmr = (10 * weight) + (6.25 * height) - (5 * age);
+            bmr = currentGender === 'm' ? bmr + 5 : bmr - 161;
+
+            const tdee = Math.round(bmr * activity);
+            const deficitMin = Math.round(tdee - 500);
+            const deficitMax = Math.round(tdee - 300);
+
+            document.getElementById('res-maintenance').innerText = `${tdee.toLocaleString('pt-BR')} kcal`;
+            document.getElementById('res-deficit').innerText = `${deficitMin.toLocaleString('pt-BR')} - ${deficitMax.toLocaleString('pt-BR')} kcal`;
+        }
+
+        // 2. LÓGICA DO SIMULADOR DO PLANO DE 30 DIAS
+        function switchTab(tabNum) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+
+            document.getElementById(`tab-btn-${tabNum}`).classList.add('active');
+            document.getElementById(`tab-content-${tabNum}`).classList.remove('hidden');
+        }
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.habit-check');
+            const total = checkboxes.length;
+            const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const percent = Math.round((checked / total) * 100);
+
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+            document.getElementById('progress-percent').innerText = `${percent}% Concluído`;
+        }
+
+        // 3. LÓGICA DO QUIZ
+        const quizAnswers = {};
+
+        function answerQuiz(qNum, answer) {
+            quizAnswers[`q${qNum}`] = answer;
+            document.getElementById(`quiz-q${qNum}`).classList.add('hidden');
+            document.getElementById(`quiz-q${qNum + 1}`).classList.remove('hidden');
+        }
+
+        function finishQuiz(answer) {
+            quizAnswers['q3'] = answer;
+            document.getElementById('quiz-q3').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+
+            const titleEl = document.getElementById('quiz-res-title');
+            const descEl = document.getElementById('quiz-res-desc');
+
+            if (quizAnswers.q1 === 'org') {
+                titleEl.innerText = "Perfil: Foco em Organização & Praticidade";
+                descEl.innerText = "Sua principal chave de sucesso no guia será o capítulo de Organização de Compras Econômicas e Preparo de Refeições Rápidas nas Semanas 1 e 2.";
+            } else if (quizAnswers.q1 === 'emo') {
+                titleEl.innerText = "Perfil: Foco em Gestão Emocional & Saciedade";
+                descEl.innerText = "O guia vai te ajudar a identificar a fome física vs emocional, além de equilibrar os macronutrientes para manter você satiado por mais tempo.";
+            } else {
+                titleEl.innerText = "Perfil: Foco em Desmistificar a Alimentação";
+                descEl.innerText = "Você se beneficiará muito dos capítulos de Fundamentos e Mitos. O guia provará que você não precisa cortar pão ou arroz para emagrecer com saúde.";
+            }
+        }
+
+        // 4. LÓGICA DO FAQ & BUSCA
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('[data-lucide="chevron-down"]');
+            const isOpen = content.classList.contains('active');
+
+            document.querySelectorAll('.accordion-content').forEach(item => item.classList.remove('active'));
+            document.querySelectorAll('#faq-container [data-lucide="chevron-down"]').forEach(i => i.style.transform = 'rotate(0deg)');
+
+            if (!isOpen) {
+                content.classList.add('active');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        function filterFaq() {
+            const query = document.getElementById('faq-search').value.toLowerCase();
+            const items = document.querySelectorAll('.faq-item');
+
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // 5. MODAL DE CHECKOUT
+        function openCheckoutModal() {
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function confirmPurchaseSim() {
+            alert('Simulação realizada! Em ambiente de produção, você seria direcionado ao checkout seguro (Hotmart, Kiwify, Eduzz, etc.).');
+            closeCheckoutModal();
+        }
+
+        // Execução Inicial
+        calculateStats();
+    </script>
+</body>
+</html>
